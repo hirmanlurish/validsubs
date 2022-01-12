@@ -79,7 +79,10 @@ class Valid_Subs :
 
             valid_hosts = subprocess.check_output(f"httpx -list subs.txt -silent -probe -status-code -ip -cdn -o all_httpx.txt", shell=True)
             valid_hosts = subprocess.check_output(f"awk '!/FAILED/' all_httpx.txt > true_httpx.txt", shell=True)
-            print("! check all_httpx.txt and true_httpx.txt Files ")            
+		# subs.txt 	 ============> All Fetches SubDomains from AssetFinder And SubFinder
+	        # all_httpx.txt  ============> All Checked Subs By Httpx 
+	        # true_httpx.txt ============> Valid Subs
+            print("![++] check subs.txt , all_httpx.txt and true_httpx.txt Files ")            
            # print(valid_hosts.decode())
         except Exception :  
             raise ValueError(f"[-] this Website Has Not SubDomain ... ")
